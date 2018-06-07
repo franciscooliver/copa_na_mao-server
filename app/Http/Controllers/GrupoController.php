@@ -23,7 +23,7 @@ class GrupoController extends Controller
     public function index()
     {
 
-        $grupos = Grupo::all();
+        //$grupos = Grupo::all();
 
         $dados = DB::table('grupos')
             ->join('dados_selecoes', 'grupos.id', '=', 'dados_selecoes.fk_grupo')

@@ -15,3 +15,4 @@ use Illuminate\Http\Request;
 Route::resource('grupos','GrupoController');
 Route::resource('dados','DadosSelecaoController');
 Route::resource('noticias','NoticiaController');
+Route::resource('dadosfases','FaseOneController');
