@@ -274,7 +274,11 @@ class ComposerStaticInitf6c7fcdce43b45366a08a9f9bfe6f0db
     );
 
     public static $classMap = array (
+        'CreateFkTableDadosFaseOnes' => __DIR__ . '/../..' . '/database/migrations/2018_06_10_112453_create_fk_table_dados_fase_ones.php',
+        'CreateTableDadosDiarios' => __DIR__ . '/../..' . '/database/migrations/2018_06_09_000051_create_table_dados_diarios.php',
         'CreateTableDadosFaseOne' => __DIR__ . '/../..' . '/database/migrations/2018_06_04_001123_create_table_dados_fase_one.php',
+        'CreateTableDadosFaseTrees' => __DIR__ . '/../..' . '/database/migrations/2018_06_07_192921_create_table_dados_fase_trees.php',
+        'CreateTableFaseOitavas' => __DIR__ . '/../..' . '/database/migrations/2018_06_14_231529_create_table_fase_oitavas.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
@@ -808,6 +812,7 @@ class ComposerStaticInitf6c7fcdce43b45366a08a9f9bfe6f0db
         'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => __DIR__ . '/..' . '/sebastian/recursion-context/src/InvalidArgumentException.php',
         'SebastianBergmann\\ResourceOperations\\ResourceOperations' => __DIR__ . '/..' . '/sebastian/resource-operations/src/ResourceOperations.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'TableDadosFaseTwo' => __DIR__ . '/../..' . '/database/migrations/2018_06_07_165027_table_dadosFaseTwo.php',
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
     );

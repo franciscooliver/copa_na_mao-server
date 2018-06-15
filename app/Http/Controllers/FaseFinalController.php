@@ -3,16 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Noticia;
+use App\Grupo;
 use Illuminate\Support\Facades\DB;
+use App\FaseOitava;
 
-class NoticiaController extends Controller
+class FaseFinalController extends Controller
 {
 
-    public function __construct()
-    {
-        header("Acess-Control-Allow-Origin:*");
-    }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,20 +18,14 @@ class NoticiaController extends Controller
      */
     public function index()
     {
+        $oitavas = FaseOitava::all();
 
-
-        $noticias = DB::table('noticias')
-            ->orderBy('id','DESC')
-            ->get();
-
-        if ($noticias){
-            return response()->json($noticias);
-
+        if(!empty($oitavas)){
+            return response()->json($oitavas);
         }else{
-            return response()->json(['data'=>'Erro ao recuperar  notícias','status'=>false]);
+            return response()->json(['data'=>'Error', 'status'=>false]);
         }
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -43,6 +35,9 @@ class NoticiaController extends Controller
     public function create()
     {
         //
+
+
+
     }
 
     /**
@@ -53,14 +48,14 @@ class NoticiaController extends Controller
      */
     public function store(Request $request)
     {
-        $dadosNoticia = $request->all();
-        $noticia = Noticia::create($dadosNoticia);
+        $dados_oitavas = $request->all();
 
-        if ($noticia){
-            return response()->json($noticia);
+        $oitavas = FaseOitava::create($dados_oitavas);
 
+        if($dados_oitavas){
+            return response()->json($dados_oitavas);
         }else{
-            return response()->json(['data'=>'Error create noticia','status'=>false]);
+            return response()->json(['data'=>'Error', 'status'=>false]);
         }
     }
 

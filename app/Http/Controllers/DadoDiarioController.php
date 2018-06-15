@@ -3,16 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Noticia;
+use App\DadoDiario;
 use Illuminate\Support\Facades\DB;
 
-class NoticiaController extends Controller
+class DadoDiarioController extends Controller
 {
-
-    public function __construct()
-    {
-        header("Acess-Control-Allow-Origin:*");
-    }
     /**
      * Display a listing of the resource.
      *
@@ -20,19 +15,20 @@ class NoticiaController extends Controller
      */
     public function index()
     {
+        date_default_timezone_set('America/Sao_Paulo');
+        $dataLocal = date('d/m');
 
-
-        $noticias = DB::table('noticias')
-            ->orderBy('id','DESC')
+    
+        $partidasDoDia = DB::table('dado_diarios')
+            ->select('url_img1','url_img2','text1','text2','hora_partida')
+            ->where([
+                'data'=>$dataLocal
+            ])
             ->get();
 
-        if ($noticias){
-            return response()->json($noticias);
-
-        }else{
-            return response()->json(['data'=>'Erro ao recuperar  notícias','status'=>false]);
-        }
+        return response()->json($partidasDoDia);
     }
+
 
 
     /**
@@ -53,14 +49,14 @@ class NoticiaController extends Controller
      */
     public function store(Request $request)
     {
-        $dadosNoticia = $request->all();
-        $noticia = Noticia::create($dadosNoticia);
+        $data = $request->all();
 
-        if ($noticia){
-            return response()->json($noticia);
+        $dado_diario = DadoDiario::create($data);
 
+        if($dado_diario){
+            return response()->json($dado_diario);
         }else{
-            return response()->json(['data'=>'Error create noticia','status'=>false]);
+            return response()->json(['data'=>'Error', 'status'=>false]);
         }
     }
 

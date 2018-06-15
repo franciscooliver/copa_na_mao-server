@@ -3,16 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Noticia;
-use Illuminate\Support\Facades\DB;
+use App\Resultado;
 
-class NoticiaController extends Controller
+class ResultadoController extends Controller
 {
-
-    public function __construct()
-    {
-        header("Acess-Control-Allow-Origin:*");
-    }
     /**
      * Display a listing of the resource.
      *
@@ -20,20 +14,10 @@ class NoticiaController extends Controller
      */
     public function index()
     {
+        $resultados = Resultado::all();
 
-
-        $noticias = DB::table('noticias')
-            ->orderBy('id','DESC')
-            ->get();
-
-        if ($noticias){
-            return response()->json($noticias);
-
-        }else{
-            return response()->json(['data'=>'Erro ao recuperar  notícias','status'=>false]);
-        }
+        return response()->json($resultados);
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -53,14 +37,13 @@ class NoticiaController extends Controller
      */
     public function store(Request $request)
     {
-        $dadosNoticia = $request->all();
-        $noticia = Noticia::create($dadosNoticia);
+        $dados = $request->all();
+        $resultado = Resultado::create($dados);
 
-        if ($noticia){
-            return response()->json($noticia);
-
+        if($resultado){
+            return response()->json($resultado);
         }else{
-            return response()->json(['data'=>'Error create noticia','status'=>false]);
+            return response()->json(['data'=>'Erro ao inserir resultados','status'=>false]);
         }
     }
 
@@ -72,7 +55,12 @@ class NoticiaController extends Controller
      */
     public function show($id)
     {
-        //
+        $resultado = Resultado::find($id);
+
+        if(!empty($resultado)){
+            return response()->json($resultado);
+        }
+
     }
 
     /**
@@ -83,7 +71,8 @@ class NoticiaController extends Controller
      */
     public function edit($id)
     {
-        //
+
+
     }
 
     /**

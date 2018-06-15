@@ -6,7 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'CreateFkTableDadosFaseOnes' => $baseDir . '/database/migrations/2018_06_10_112453_create_fk_table_dados_fase_ones.php',
+    'CreateTableDadosDiarios' => $baseDir . '/database/migrations/2018_06_09_000051_create_table_dados_diarios.php',
     'CreateTableDadosFaseOne' => $baseDir . '/database/migrations/2018_06_04_001123_create_table_dados_fase_one.php',
+    'CreateTableDadosFaseTrees' => $baseDir . '/database/migrations/2018_06_07_192921_create_table_dados_fase_trees.php',
+    'CreateTableFaseOitavas' => $baseDir . '/database/migrations/2018_06_14_231529_create_table_fase_oitavas.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',
@@ -540,6 +544,7 @@ return array(
     'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => $vendorDir . '/sebastian/recursion-context/src/InvalidArgumentException.php',
     'SebastianBergmann\\ResourceOperations\\ResourceOperations' => $vendorDir . '/sebastian/resource-operations/src/ResourceOperations.php',
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
+    'TableDadosFaseTwo' => $baseDir . '/database/migrations/2018_06_07_165027_table_dadosFaseTwo.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
 );
